@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="styles/main.css"/>
+		<link 
+			rel="stylesheet" 
+			href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
+			integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" 
+			crossorigin="anonymous"
+		/>
+		<title>CRUD-Desarrollo</title>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar" role="navigation" aria-label="main navigation">
+  				<div class="navbar-brand">
+    				<a class="navbar-item" href="/"> JavaScrip CRUD </a>
+				</div>
+			</nav>
+		</header>
+		<main class="main-content">
+			<div class="crud-container">
+				<div class="crud-header">
+					<hi>Peliculas Registradas</hi>
+					<button class="button is-success" id="openRegisterModal">
+						<i class="fas fa-plus"></i>
+						<span>Registrar nueva pelicula</span>
+					</button>
+				</div>
+				<table class="table">
+					<thead>
+						<tr>
+						<th>#</th>
+						<th>Titulo</th>
+						<th>Año de lanzamiento</th>
+						<th>Duracion</th>
+						<th>Genero</th>
+						<th>Reparto principal</th>
+						<th>Director</th>
+						<th>Guion</th>
+						<th>Sipnosis</th>
+						<th>Opciones</th>
+						</tr>
+					</thead>
+					<tbody id="movies-table"></tbody>
+				</table>
+			</div>
+		</main>
+		<div class="modal" id="modal">
+  			<div class="modal-background"></div>
+  			<div class="modal-card">
+    			<header class="modal-card-head">
+      				<p class="modal-card-title">Registrar nueva pelicula</p>
+     				 <button class="delete" aria-label="close" id="closeRegisterModal"></button>
+    			</header>
+    			<section class="modal-card-body">
+					<form id="register-form">
+						<div class="field">
+							<label class="label">Titulo :</label>
+							<div class="control">
+								<input class="input" type="text" name="titulo" placeholder="Ingresa el titulo" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Año de lanzamiento :</label>
+							<div class="control">
+								<input class="input" type="text" name="lanzamiento" placeholder="Ingresa el año de lanzamiento" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Duracion :</label>
+							<div class="control">
+								<input class="input" type="text" name="duracion" placeholder="Ingresa la duracion" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Genero :</label>
+							<div class="control">
+								<input class="input" type="text" name="genero" placeholder="Ingresa el genero" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Reparto principal :</label>
+							<div class="control">
+								<input class="input" type="text" name="repartoprincipal" placeholder="Ingresa el reparto principal" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Director :</label>
+							<div class="control">
+								<input class="input" type="text" name="director" placeholder="Ingresa el director" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Guion :</label>
+							<div class="control">
+								<input class="input" type="text" name="guion" placeholder="Ingresa el guion" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Sinopsis</label>
+							<div class="control">
+								<textarea class="textarea" name="sinopsis" placeholder="Ingresa la sinopsis"></textarea>
+							</div>
+						</div>					
+				</section>
+    			<footer class="modal-card-foot">
+      				<button type="submit" class="button is-success">
+						<i class="fas fa-save"></i>
+		  				<span>Registar</span>  
+					</button>
+				</form>
+    			</footer>
+  			</div>
+		</div>
+		<div class="modal" id="modal-update">
+  			<div class="modal-background"></div>
+  			<div class="modal-card">
+    			<header class="modal-card-head">
+      				<p class="modal-card-title">Registrar nueva pelicula</p>
+     				 <button class="delete" aria-label="close" id="closeUpdateModal"></button>
+    			</header>
+    			<section class="modal-card-body">
+					<form id="update-form">
+						<div class="field">
+							<label class="label">Titulo :</label>
+							<div class="control">
+								<input class="input" type="text" name="titulo" placeholder="Ingresa el titulo" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Año de lanzamiento :</label>
+							<div class="control">
+								<input class="input" type="text" name="lanzamiento" placeholder="Ingresa el año de lanzamiento" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Duracion :</label>
+							<div class="control">
+								<input class="input" type="text" name="duracion" placeholder="Ingresa la duracion" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Genero :</label>
+							<div class="control">
+								<input class="input" type="text" name="genero" placeholder="Ingresa el genero" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Reparto principal :</label>
+							<div class="control">
+								<input class="input" type="text" name="repartoprincipal" placeholder="Ingresa el reparto principal" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Director :</label>
+							<div class="control">
+								<input class="input" type="text" name="director" placeholder="Ingresa el director" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Guion :</label>
+							<div class="control">
+								<input class="input" type="text" name="guion" placeholder="Ingresa el guion" />
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Sinopsis</label>
+							<div class="control">
+								<textarea class="textarea" name="sinopsis" placeholder="Ingresa la sinopsis"></textarea>
+							</div>
+						</div>					
+				</section>
+    			<footer class="modal-card-foot">
+      				<button type="submit" class="button is-success">
+						<i class="fas fa-save"></i>
+		  				<span>Editar</span>  
+					</button>
+				</form>
+    			</footer>
+  			</div>
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    	<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
